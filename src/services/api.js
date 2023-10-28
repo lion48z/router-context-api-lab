@@ -1,4 +1,5 @@
 import axios from 'axios';
+// const axios= require("axios") for testing purposes 
 
 //set up BASE_URL and API_KEY variables here
 const BASE_URL ="http://www.omdbapi.com/?"
@@ -21,5 +22,7 @@ const fetchMovieById = async (id) => {
     throw error;
   }
 }
+
+//fetchMovieById("Batman")
 
 export { fetchMovies, fetchMovieById };
