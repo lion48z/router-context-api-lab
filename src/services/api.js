@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //set up BASE_URL and API_KEY variables here
-
+const BASE_URL ="http://www.omdbapi.com/?"
 const fetchMovies = async (searchTerm) => {
   try {
     //your code here
