@@ -1,11 +1,21 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
-    <div>
-      <h1>Welcome to Blockbuster</h1>
-      <p>It's 1993 and you just picked up Pizza Hut and are heading here, it's gonna be a great Friday!</p>
+    <Router>
+  <div>
+     
+     <Routes>
+          <Route path="/*" element={<HomePage />} />
+          <Route path="/searchPage" element={<SearchPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
     </div>
+    </Router>
   );
 }
 
