@@ -1,10 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-
+import SearchBar from '../components/SearchBar'
 const SearchPage = () => {
   return (
     <div>
-       {/*<SearchBar/>*/}
+      <SearchBar/>
       {/*<MovieList/>*/}
       <Outlet/>
     </div>
