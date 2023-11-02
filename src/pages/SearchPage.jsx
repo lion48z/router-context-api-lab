@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
-import MovieProvider from '../context/MovieContext';
+import { MovieProvider } from '../context/MovieContext';
 const SearchPage = () => {
   return (
     <div>

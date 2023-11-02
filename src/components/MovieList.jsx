@@ -1,6 +1,7 @@
-import React from 'react'
-import MovieContext from '../components/MovieContext';
+import{ useContext } from 'react'
+import MovieContext from '../context/MovieContext';
 import MovieItem from './MovieItem';
+import {Container,Row} from 'react-bootstrap';
 
 
 const MovieList = () => {
