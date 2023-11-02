@@ -1,7 +1,7 @@
 import{ useContext } from 'react'
 import {MovieContext} from '../MovieContext';
 import MovieItem from './MovieItem';
-import {Container,Row} from 'react-bootstrap';
+import { Container,Row } from 'react-bootstrap';
 
 const MovieList = () => {
   const { state } = useContext(MovieContext);

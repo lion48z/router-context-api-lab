@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { fetchMovies } from "../services/api"; // Import fetchMovies
 import { MovieContext } from "../MovieContext";
 import MovieList from "./MovieList";
-//import { Link } from 'react-router-dom';
+import  {Form, Button } from 'react-bootstrap';
 
 const SearchBar = () => {
   const { dispatch } = useContext(MovieContext);
@@ -21,19 +21,22 @@ const SearchBar = () => {
   }
 
   return (
-    <div>
-      <input
+    <Form>
+      <Form.Group>
+      <Form.Control
         type="text"
         placeholder="Search for a movie"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)} 
       />
+      </Form.Group>
       
-      <button onClick={handleSearch} type="submit">
+      <Button variant="primary" onClick={handleSearch} type="submit">
         Search
-      </button>
+      </Button>
+    
       <MovieList />
-    </div>
+      </Form>
   );
 };
 
