@@ -1,11 +1,18 @@
-import React from 'react'
-
-const MovieItem = () => {
+import { Container, Row  } from "react-bootstrap";
+const MovieItem = ({ title, plot, imgUrl }) => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Container>
+     {/*} <Row>
+        {movies.map((movie) => (
+          <MovieItem
+            key={movie.id}
+            title={movie.title}
+            plot={movie.plot}
+            imgUrl={movie.imgUrl}
+          />
+        ))}
+        </Row>*/}
+    </Container>
+  );
+};
 
-export default MovieItem
