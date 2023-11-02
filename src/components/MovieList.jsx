@@ -24,7 +24,7 @@ const MovieList = () => {
             title={movie.Title}
             plot={movie.Plot}
             imgUrl={movie.Poster}
-            //onClick={() => navigateToMovieDetails(movie.id)}
+           //onClick={() => navigateToMovieDetails(movie.id)}
           />
         ))}
       </Row>
