@@ -1,22 +1,24 @@
-import React, { useContext, useState } from 'react';
-import { fetchMovies } from '../services/api';
-import { MovieContext } from '../context/MovieContext';
-import MovieList from './MovieList'; // Import the MovieList component
+import React, { useContext, useState } from "react";
+import { fetchMovies } from "../services/api"; // Import fetchMovies
+import { MovieContext } from "../MovieContext";
+import MovieList from "./MovieList";
+//import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
   const { dispatch } = useContext(MovieContext);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [year, setYear] = useState(''); 
-  const [plot, setPlot] = useState(''); 
+  const [searchTerm, setSearchTerm] = useState("");
+
   const handleSearch = async (e) => {
     e.preventDefault();
     try {
-      const movies = await fetchMovies(searchTerm, year, plot);
-      dispatch({ type: 'SET_MOVIES', payload: movies });
+      const lowercaseSearchTerm = searchTerm.toLowerCase();
+      const movies = await fetchMovies(lowercaseSearchTerm); // Use fetchMovies here
+      dispatch({ type: "SET_MOVIES", payload: movies });
+      setSearchTerm(""); // Clear the search input
     } catch (error) {
-      console.error('Error searching for movies:', error);
+      console.error("Error searching for movies:", error);
     }
-  };
+  }
 
   return (
     <div>
@@ -24,26 +26,16 @@ const SearchBar = () => {
         type="text"
         placeholder="Search for a movie"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => setSearchTerm(e.target.value)} 
       />
-      <input
-        type="text"
-        placeholder="Year"
-        value={year}
-        onChange={(e) => setYear(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Plot"
-        value={plot}
-        onChange={(e) => setPlot(e.target.value)}
-      />
+      
       <button onClick={handleSearch} type="submit">
         Search
       </button>
-      <MovieList /> 
+      <MovieList />
     </div>
   );
 };
 
 export default SearchBar;
+

@@ -1,13 +1,15 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Outlet  } from 'react-router-dom';
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
 import SearchPage from "./pages/SearchPage";
+import {MovieProvider} from './MovieContext';
 
 function App() {
   return (
     <Router>
+      <MovieProvider>
       <div>
         
         <nav>
@@ -30,6 +32,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
+      </MovieProvider>
     </Router>
   );
 }
