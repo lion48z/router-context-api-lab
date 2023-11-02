@@ -1,14 +1,15 @@
-import React from 'react'
+import { createContext, useState, useContext } from 'react'
 
-const MovieContext = () => {
+const MovieContext = createContext();
+const MovieProvider = ({ children }) =>{
   const [searchInput, setSearchInput] = useState('');
-  const searchMovie = () =>{
+  const [searchResults, setSearchResults] = useState([]);
+ 
 
-  }
   return (
-    <div>
-      
-    </div>
+    <MovieContext.Provider value={{ searchInput, setSearchInput, searchResults }}>
+    {children}
+  </MovieContext.Provider>
   )
 }
 
