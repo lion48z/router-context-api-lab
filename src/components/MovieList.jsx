@@ -1,3 +1,8 @@
+import{ useContext } from 'react'
+import {MovieContext} from '../MovieContext';
+import MovieItem from './MovieItem';
+import {Container,Row} from 'react-bootstrap';
+
 const MovieList = () => {
   const { state } = useContext(MovieContext);
   const movies = state.movies || [];
@@ -15,10 +20,10 @@ const MovieList = () => {
       <Row>
         {movies.map((movie) => (
           <MovieItem
-            key={movie.id}
-            title={movie.title}
-            plot={movie.plot}
-            imgUrl={movie.imgUrl}
+            key={movie.imdbID}
+            title={movie.Title}
+            plot={movie.Plot}
+            imgUrl={movie.Poster}
             //onClick={() => navigateToMovieDetails(movie.id)}
           />
         ))}
@@ -27,3 +32,4 @@ const MovieList = () => {
   );
 }
 
+export default MovieList;
