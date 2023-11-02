@@ -13,4 +13,4 @@ const MovieProvider = ({ children }) =>{
   )
 }
 
-export default MovieContext
+export { MovieContext, MovieProvider as default };
