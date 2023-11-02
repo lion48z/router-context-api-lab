@@ -3,10 +3,12 @@ import React from 'react'
 const SearchBar = () => {
   return (
     <div>
-      <input placeholder="search"></input>
-      <button>Search</button>
+    
+    <input type="text" placeholder="Search for a movie" />
+    <button type="submit">Search</button>
     </div>
   )
 }
 
 export default SearchBar
+
