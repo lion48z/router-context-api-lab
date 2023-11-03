@@ -4,10 +4,14 @@ const MovieItem = ({ title, plot, imgUrl, imdbID }) => {
   return (
     <div>
       <Link to={`/movie/${imdbID}`}>
-        <h1>{title}</h1>
-        <p>{plot}</p>
         <img src={imgUrl} alt={title} />
       </Link>
+      <div>
+        <h1>
+          <Link to={`/movie/${imdbID}`}>{title}</Link>
+        </h1>
+        <p>{plot}</p>
+      </div>
     </div>
   );
 }

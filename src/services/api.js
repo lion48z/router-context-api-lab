@@ -21,6 +21,7 @@ const fetchMovies = async (searchString) => {
     console.error("Error fetching movies:", error);
     throw error;
   }
+ 
 };
 
 const fetchMovieById = async (id) => {

@@ -17,8 +17,9 @@ const MovieList = () => {
   }
 
   return (
-    <Container>
+   <Container>
       <Row>
+     
         {movies.map((movie) => (
           <Link
             to={{
@@ -27,19 +28,19 @@ const MovieList = () => {
             }}
             key={movie.imdbID}
           >
-            <MovieItem
+           <MovieItem
           title={movie.Title}
           plot={movie.Plot}
           imgUrl={movie.Poster}
           imdbId={movie.imdbID}
-      />
+          />
          
           </Link>
-          
+         
        
         ))}
-      </Row>
-    </Container>
+     </Row>
+          </Container>
   );
 }
 
