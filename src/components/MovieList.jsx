@@ -28,12 +28,15 @@ const MovieList = () => {
             key={movie.imdbID}
           >
             <MovieItem
-              title={movie.Title}
-              plot={movie.Plot}
-              imgUrl={movie.Poster}
-              imdbId={movie.imdbID}
-            />
+          title={movie.Title}
+          plot={movie.Plot}
+          imgUrl={movie.Poster}
+          imdbId={movie.imdbID}
+      />
+         
           </Link>
+          
+       
         ))}
       </Row>
     </Container>

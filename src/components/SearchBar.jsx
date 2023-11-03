@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { fetchMovies } from "../services/api"; // Import fetchMovies
 import { MovieContext } from "../MovieContext";
-import MovieList from "./MovieList";
+
 import  {Form, Button } from 'react-bootstrap';
 
 const SearchBar = () => {
@@ -12,9 +12,9 @@ const SearchBar = () => {
     e.preventDefault();
     try {
       const lowercaseSearchTerm = searchTerm.toLowerCase();
-      const movies = await fetchMovies(lowercaseSearchTerm); // Use fetchMovies here
+      const movies = await fetchMovies(lowercaseSearchTerm); 
       dispatch({ type: "SET_MOVIES", payload: movies });
-      setSearchTerm(""); // Clear the search input
+      setSearchTerm(""); 
     } catch (error) {
       console.error("Error searching for movies:", error);
     }
@@ -35,7 +35,7 @@ const SearchBar = () => {
         Search
       </Button>
     
-      <MovieList />
+      
       </Form>
   );
 };

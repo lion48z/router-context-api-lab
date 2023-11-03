@@ -24,6 +24,7 @@ const fetchMovies = async (searchString) => {
 };
 
 const fetchMovieById = async (id) => {
+ 
   const BASE_URL = `http://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`;
   
   try {

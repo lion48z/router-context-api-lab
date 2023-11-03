@@ -1,10 +1,10 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link,  } from 'react-router-dom';
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
 import SearchPage from "./pages/SearchPage";
-import {MovieProvider} from './MovieContext';
+import { MovieProvider } from './MovieContext';
 
 function App() {
   return (
@@ -28,7 +28,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/searchPage" element={<SearchPage />} />
-          <Route path="/movie/:imdbID" element={<MovieDetailsPage />} />
+          <Route path="/movie/:imdbId" element={<MovieDetailsPage />} />
+          
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
