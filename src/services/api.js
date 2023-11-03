@@ -24,7 +24,12 @@ const fetchMovies = async (searchString) => {
  
 };
 
-const fetchMovieById = async (id) => {
+const fetchMovieById = async (id, jsonMovieData) => {
+  const jsonMovieDetails = jsonMovieData.find((movie) => movie.imdbID === id);
+
+  if (jsonMovieDetails) {
+    return jsonMovieDetails;
+  }
  
   const BASE_URL = `http://www.omdbapi.com/?i=${id}&apikey=${API_KEY}`;
   
