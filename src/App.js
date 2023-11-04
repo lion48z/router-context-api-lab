@@ -5,34 +5,31 @@ import NotFoundPage from "./pages/NotFoundPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
 import SearchPage from "./pages/SearchPage";
 import { MovieProvider } from './MovieContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 function App() {
   return (
     <Router>
       <MovieProvider>
-      <div>
-        
-        <nav>
-          <ul className="list-unstyled">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/searchPage">Search</Link>
-            </li>
-            <li>
-              <Link to="/movieDetailsPage">Movie Details</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar bg="light" expand="lg">
+          <Container>
+            <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link as={Link} to="/searchPage">Search</Nav.Link>
+                <Nav.Link as={Link} to="/movieDetailsPage">Movie Details</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/searchPage" element={<SearchPage />} />
           <Route path="/movie/:imdbId" element={<MovieDetailsPage />} />
-          
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </div>
       </MovieProvider>
     </Router>
   );

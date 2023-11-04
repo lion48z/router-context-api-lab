@@ -1,17 +1,18 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { MovieContext } from '../MovieContext';
-import { fetchMovieById } from '../services/api'; // Import the modified fetchMovieById function
+//import { fetchMovieById } from '../services/api'; 
 
 const MovieDetailsPage = () => {
   const { state } = useContext(MovieContext);
   const { imdbID } = useParams();
   console.log('IMDb ID from URL:', imdbID);
   console.log('Movies from context:', state.movies);
-  const jsonMovieData = []; // Replace with your JSON response data
+ 
+  const movie = state.movies.find(m => m.imdbID === imdbID);
 
-  // Fetch movie details with the IMDb ID and the JSON response data
-  const movie = fetchMovieById(imdbID, jsonMovieData);
+ 
+  //const movie = fetchMovieById(imdbID);
 
   if (!movie) {
     return <p>Movie not found</p>;
