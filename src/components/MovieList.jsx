@@ -1,47 +1,40 @@
-import{ useContext } from 'react'
-import {MovieContext} from '../MovieContext';
-import MovieItem from './MovieItem';
-import { Container,Row } from 'react-bootstrap';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { Card, ListGroup } from 'react-bootstrap';
 
-const MovieList = () => {
-  const { state } = useContext(MovieContext);
-  const movies = state.movies || [];
-
-  if (state.loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (movies.length === 0) {
-    return null;
-  }
+function MovieList({ movies }) {
+  const customPosterStyle = {
+    width: '300px',
+    height: '400px', 
+  };
 
   return (
-   <Container>
-      <Row>
-     
+    <div>
+      <h3>Search Results</h3>
+      <ListGroup>
         {movies.map((movie) => (
-          <Link
-            to={{
-              pathname: `/movie/${movie.imdbID}`,
-              state: { movie },
-            }}
-            key={movie.imdbID}
-          >
-           <MovieItem
-          title={movie.Title}
-          plot={movie.Plot}
-          imgUrl={movie.Poster}
-          imdbId={movie.imdbID}
-          />
-         
-          </Link>
-         
-       
+          <ListGroup.Item key={movie.imdbID}>
+            <Link to={`/movie/${movie.imdbID}`}>
+              <Card>
+                <Card.Img
+                  variant="top"
+                  src={movie.Poster}
+                  alt={movie.Title}
+                  style={customPosterStyle} 
+                />
+                <Card.Body>
+                  <Card.Title>{movie.Title}</Card.Title>
+                  <Card.Text>({movie.Year})</Card.Text>
+                </Card.Body>
+              </Card>
+            </Link>
+          </ListGroup.Item>
         ))}
-     </Row>
-          </Container>
+      </ListGroup>
+    </div>
   );
 }
 
 export default MovieList;
+
+

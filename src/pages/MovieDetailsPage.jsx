@@ -1,31 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { MovieContext } from '../MovieContext';
-//import { fetchMovieById } from '../services/api'; 
+import { fetchMovieById } from '../services/api';
 
 const MovieDetailsPage = () => {
-  const { state } = useContext(MovieContext);
-  const { imdbID } = useParams();
-  console.log('IMDb ID from URL:', imdbID);
-  console.log('Movies from context:', state.movies);
- 
-  const movie = state.movies.find(m => m.imdbID === imdbID);
+  const { imdbId } = useParams();
+  const [movieDetails, setMovieDetails] = useState(null);
 
- 
-  //const movie = fetchMovieById(imdbID);
+  useEffect(() => {
+    async function fetchMovieDetails() {
+      try {
+        const details = await fetchMovieById(imdbId);
+        setMovieDetails(details);
+      } catch (error) {
+        console.error('Error fetching movie details:', error);
+      }
+    }
+    fetchMovieDetails();
+  }, [imdbId]);
 
-  if (!movie) {
-    return <p>Movie not found</p>;
+  if (!movieDetails) {
+    return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <h2>{movie.Title}</h2>
-      <p>{movie.Plot}</p>
-      <img src={movie.Poster} alt={movie.Title} />
-      <p>IMDB ID: {movie.imdbID}</p>
+      <h2>Movie Details</h2>
+      <div>
+        <h3>{movieDetails.Title} ({movieDetails.Year})</h3>
+        <img src={movieDetails.Poster} alt={movieDetails.Title} />
+        <p>{movieDetails.Plot}</p>
+      </div>
     </div>
   );
 };
 
 export default MovieDetailsPage;
+
