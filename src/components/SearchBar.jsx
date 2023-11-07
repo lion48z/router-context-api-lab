@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { fetchMovies } from "../services/api"; // Import fetchMovies
+import { fetchMovies } from "../services/api";
 import { MovieContext } from "../MovieContext";
 
 import  {Form, Button } from 'react-bootstrap';

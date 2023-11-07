@@ -10,7 +10,8 @@ const MovieDetailsPage = () => {
     async function fetchMovieDetails() {
       try {
         const details = await fetchMovieById(imdbId);
-        setMovieDetails(details);
+        //console.log(details);
+       setMovieDetails(details);
       } catch (error) {
         console.error('Error fetching movie details:', error);
       }
@@ -26,9 +27,10 @@ const MovieDetailsPage = () => {
     <div>
       <h2>Movie Details</h2>
       <div>
-        <h3>{movieDetails.Title} ({movieDetails.Year})</h3>
+        <h3>{movieDetails.Title} ({movieDetails.Year}) {movieDetails.Rated}</h3>
         <img src={movieDetails.Poster} alt={movieDetails.Title} />
-        <p>{movieDetails.Plot}</p>
+        <p>{movieDetails.Plot} </p>
+        <p>Actors:{movieDetails.Actors}</p>
       </div>
     </div>
   );
