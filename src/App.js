@@ -19,7 +19,7 @@ function App() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link as={Link} to="/searchPage">Search</Nav.Link>
-                <Nav.Link as={Link} to="/movieDetailsPage">Movie Details</Nav.Link>
+                {/*<Nav.Link as={Link} to="/movieDetailsPage">Movie Details</Nav.Link>*/}
               </Nav>
             </Navbar.Collapse>
           </Container>
